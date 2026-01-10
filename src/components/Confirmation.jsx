@@ -61,7 +61,7 @@ const Confirmation = () => {
                             <div className="col-6">
                                 <p><strong>Order ID: </strong> #{order.id}</p>
                                 <p><strong>Date: </strong> {order.created_at}</p>
-                                <p><strong>Status: </strong> 
+                                <p><strong>Status: </strong>
                                 {
                                     order.status == 'pending' && <span className='badge bg-warning'>Pending</span>
                                 }
@@ -75,7 +75,11 @@ const Confirmation = () => {
                                     order.status == 'cancelled' && <span className='badge bg-danger'>Cancelled</span>
                                 }                                                                                                                                                                           
                                 </p>
-                                <p><strong>Payment Method:</strong> COD</p>
+                                <p><strong>Payment Method: </strong>
+                                {
+                                    order.payment_method == 'stripe' ? <span className='badge bg-success'>Stripe</span> : <span className='badge bg-warning'>COD</span>
+                                }
+                                </p>
                             </div>
                             <div className="col-6">
                                 <p><strong>Customer: </strong> {order.name}</p>
